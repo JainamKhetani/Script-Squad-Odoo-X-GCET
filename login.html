@@ -176,6 +176,7 @@ nav a:hover {
     border-color: var(--primary);
 }
 
+/* LOGIN BUTTON */
 .login-box button {
     width: 100%;
     padding: 14px;
@@ -186,6 +187,24 @@ nav a:hover {
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;
+}
+
+/* SIGN UP LINK */
+.signup-link {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--black);
+}
+
+.signup-link a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
 }
 </style>
 </head>
@@ -234,6 +253,12 @@ nav a:hover {
             </div>
 
             <button type="submit">LOGIN</button>
+
+            <!-- Sign Up Option -->
+            <div class="signup-link">
+                Don’t have an account?
+                <a href="signup.html">Sign Up</a>
+            </div>
         </form>
     </div>
 
