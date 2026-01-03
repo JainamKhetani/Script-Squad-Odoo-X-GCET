@@ -2,19 +2,19 @@
 session_start();
 include "db.php";
 
-/* Fetch Leave Requests */
+/* Fetch Payroll Data */
 $sql = "
 SELECT 
     e.full_name,
-    lt.type_name,
-    lr.start_date,
-    lr.end_date,
-    lr.reason,
-    lr.status
-FROM leave_requests lr
-JOIN employees e ON lr.employee_id = e.id
-JOIN leave_types lt ON lr.leave_type_id = lt.id
-ORDER BY lr.created_at DESC
+    e.designation,
+    p.basic_salary,
+    p.allowances,
+    p.deductions,
+    p.net_salary,
+    p.last_updated
+FROM payroll p
+JOIN employees e ON p.employee_id = e.id
+ORDER BY p.last_updated DESC
 ";
 
 $result = $conn->query($sql);
@@ -23,7 +23,7 @@ $result = $conn->query($sql);
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Leave Management | DayFlow HR</title>
+<title>Payroll | DayFlow HR</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
@@ -107,27 +107,15 @@ tr:last-child td{
     border-bottom:none;
 }
 
-/* ===== Status Badges ===== */
-.badge{
-    padding:6px 14px;
-    border-radius:20px;
-    font-size:12px;
+/* ===== Salary Styling ===== */
+.salary{
     font-weight:600;
+    color:#4A70A9;
 }
 
-.pending{
-    background:#fff3cd;
-    color:#856404;
-}
-
-.approved{
-    background:#d4edda;
-    color:#155724;
-}
-
-.rejected{
-    background:#f8d7da;
-    color:#721c24;
+.deduction{
+    color:#d63031;
+    font-weight:600;
 }
 
 .empty{
@@ -148,48 +136,44 @@ tr:last-child td{
         <a href="admin_dashboard.php"><i class="fa fa-home"></i> Dashboard</a>
         <a href="employees.php"><i class="fa fa-users"></i> Employees</a>
         <a href="attendance.php"><i class="fa fa-calendar-check"></i> Attendance</a>
-        <a href="leave.php" class="active"><i class="fa fa-umbrella-beach"></i> Leave</a>
-        <a href="payroll.php"><i class="fa fa-money-bill-wave"></i> Payroll</a>
+        <a href="leave.php"><i class="fa fa-umbrella-beach"></i> Leave</a>
+        <a href="payroll.php" class="active"><i class="fa fa-money-bill-wave"></i> Payroll</a>
         <a href="login.html"><i class="fa fa-sign-out-alt"></i> Logout</a>
     </div>
 
     <!-- ===== Main Content ===== -->
     <div class="main">
         <div class="page-title">
-            <i class="fa fa-umbrella-beach"></i> Leave Management
+            <i class="fa fa-money-bill-wave"></i> Payroll Management
         </div>
 
         <div class="card">
             <table>
                 <tr>
                     <th>Employee Name</th>
-                    <th>Leave Type</th>
-                    <th>Duration</th>
-                    <th>Reason</th>
-                    <th>Status</th>
+                    <th>Designation</th>
+                    <th>Basic Salary</th>
+                    <th>Allowances</th>
+                    <th>Deductions</th>
+                    <th>Net Salary</th>
+                    <th>Last Updated</th>
                 </tr>
 
                 <?php if ($result->num_rows > 0): ?>
                     <?php while($row = $result->fetch_assoc()): ?>
                         <tr>
                             <td><?= htmlspecialchars($row['full_name']) ?></td>
-                            <td><?= htmlspecialchars($row['type_name']) ?></td>
-                            <td>
-                                <?= date("d M Y", strtotime($row['start_date'])) ?>
-                                →
-                                <?= date("d M Y", strtotime($row['end_date'])) ?>
-                            </td>
-                            <td><?= htmlspecialchars($row['reason']) ?></td>
-                            <td>
-                                <span class="badge <?= $row['status'] ?>">
-                                    <?= ucfirst($row['status']) ?>
-                                </span>
-                            </td>
+                            <td><?= htmlspecialchars($row['designation']) ?></td>
+                            <td class="salary">₹<?= number_format($row['basic_salary']) ?></td>
+                            <td class="salary">₹<?= number_format($row['allowances']) ?></td>
+                            <td class="deduction">₹<?= number_format($row['deductions']) ?></td>
+                            <td class="salary">₹<?= number_format($row['net_salary']) ?></td>
+                            <td><?= date("d M Y", strtotime($row['last_updated'])) ?></td>
                         </tr>
                     <?php endwhile; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="5" class="empty">No leave requests found</td>
+                        <td colspan="7" class="empty">No payroll records found</td>
                     </tr>
                 <?php endif; ?>
             </table>

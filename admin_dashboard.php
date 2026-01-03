@@ -173,8 +173,8 @@ th {
         <a href="employees.php"><i class="fa fa-users"></i> Employees</a>
         <a href="attendance.php"><i class="fa fa-calendar-check"></i> Attendance</a>
         <a href="leave.php"><i class="fa fa-umbrella-beach"></i> Leave</a>
-        <a href="#"><i class="fa fa-money-bill"></i> Payroll</a>
-        <a href="logout.php"><i class="fa fa-sign-out-alt"></i> Logout</a>
+        <a href="payroll.php"><i class="fa fa-money-bill"></i> Payroll</a>
+        <a href="login.html"><i class="fa fa-sign-out-alt"></i> Logout</a>
     </div>
 
     <!-- MAIN CONTENT -->
