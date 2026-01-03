@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DayFlow HR | Sign Up</title>
+
+<style>
+:root {
+    --black: #000000;
+    --primary: #4A70A9;
+    --secondary: #8FABD4;
+    --bg: #EFECE3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== SIGNUP CARD ===== */
+.signup-box {
+    width: 420px;
+    background: linear-gradient(
+        160deg,
+        #ffffff,
+        #f3f1ea,
+        #e3e9f4
+    );
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+/* Title */
+.signup-box h2 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 8px;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.signup-box p.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 28px;
+}
+
+/* Inputs */
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--black);
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    border: 1.5px solid var(--secondary);
+    font-size: 14px;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* Button */
+.signup-box button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--primary), #365c8c);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Email verification note */
+.verify-note {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #444;
+    text-align: center;
+}
+
+/* Login redirect */
+.login-link {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.login-link a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="signup-box">
+    <h2>Create Account</h2>
+    <p class="subtitle">Join DayFlow HR to manage your work seamlessly</p>
+
+    <form action="/signup" method="POST">
+
+        <!-- Employee ID -->
+        <div class="input-group">
+            <label>Employee ID</label>
+            <input type="number" name="employee_id" placeholder="Enter your employee ID" required>
+        </div>
+
+        <!-- Email -->
+        <div class="input-group">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="you@company.com" required>
+        </div>
+
+        <!-- Password -->
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Create a strong password" required>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="input-group">
+            <label>Confirm Password</label>
+            <input type="password" name="confirm_password" placeholder="Re-enter your password" required>
+        </div>
+
+        <!-- Role -->
+        <div class="input-group">
+            <label>Register As</label>
+            <select name="role" required>
+                <option value="EMPLOYEE">Employee</option>
+                <option value="ADMIN">Admin</option>
+            </select>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit">SIGN UP</button>
+
+        <!-- Verification Info -->
+        <p class="verify-note">
+            A verification email will be sent to your registered email address.
+            Please verify to activate your account.
+        </p>
+
+        <!-- Login Redirect -->
+        <div class="login-link">
+            Already have an account?
+            <a href="login.html">Login</a>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>
