@@ -81,13 +81,12 @@ nav a:hover {
     position: relative;
 }
 
-/* SOLID CURVED BACKGROUND */
 .hero::before {
     content: "";
     position: absolute;
     width: 120%;
     height: 120%;
-    background: #6f8fc1; /* solid soft blue like screenshot */
+    background: #6f8fc1;
     top: -45%;
     left: -25%;
     border-radius: 50%;
@@ -220,7 +219,6 @@ nav a:hover {
 
 <header>
     <h2>DayFlow<span>HR</span></h2>
-
     <nav>
         <a href="#">About</a>
         <a href="#">Services</a>
@@ -239,30 +237,49 @@ nav a:hover {
         <button>Learn More</button>
     </div>
 
+    <!-- ✅ UPDATED FORM -->
     <div class="signup-box">
         <h3>Create Account</h3>
 
-        <form>
+        <form action="signup.php" method="POST">
+
             <div class="input-group">
-                <input type="number" placeholder="Employee ID" required>
+                <input 
+                    type="number" 
+                    name="employee_id" 
+                    placeholder="Employee ID" 
+                    required>
             </div>
 
             <div class="input-group">
-                <input type="email" placeholder="Email Address" required>
+                <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Email Address" 
+                    required>
             </div>
 
             <div class="input-group">
-                <input type="password" placeholder="Password" required>
+                <input 
+                    type="password" 
+                    name="password" 
+                    placeholder="Password" 
+                    required>
             </div>
 
             <div class="input-group">
-                <input type="password" placeholder="Confirm Password" required>
+                <input 
+                    type="password" 
+                    name="confirm_password" 
+                    placeholder="Confirm Password" 
+                    required>
             </div>
 
             <div class="input-group">
-                <select required>
-                    <option>Employee</option>
-                    <option>Admin</option>
+                <select name="role" required>
+                    <option value="">Select Role</option>
+                    <option value="EMPLOYEE">Employee</option>
+                    <option value="ADMIN">Admin</option>
                 </select>
             </div>
 
@@ -276,6 +293,7 @@ nav a:hover {
                 Already have an account?
                 <a href="login.html">Login</a>
             </div>
+
         </form>
     </div>
 
