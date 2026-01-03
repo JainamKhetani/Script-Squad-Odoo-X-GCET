@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DayFlow HR | My Profile</title>
+
+<style>
+:root{
+    --primary:#4A70A9;
+    --secondary:#8FABD4;
+    --bg:#EFECE3;
+    --white:#FFFFFF;
+    --black:#000000;
+    --muted:#777;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Tahoma,sans-serif;
+}
+
+body{
+    background:var(--bg);
+}
+
+.wrapper{
+    display:flex;
+    height:100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+    width:320px;
+    padding:25px 22px;
+}
+
+.sidebar-panel{
+    background:var(--white);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,0.12);
+}
+
+.sidebar-header{
+    background:var(--primary);
+    padding:28px;
+    font-size:26px;
+    font-weight:800;
+    color:#fff;
+}
+
+.sidebar-header span{color:#dbe7ff;}
+
+.sidebar-menu{
+    padding:28px;
+}
+
+.sidebar-menu a{
+    display:block;
+    padding:16px 18px;
+    border-radius:14px;
+    text-decoration:none;
+    color:var(--black);
+    margin-bottom:14px;
+}
+
+.sidebar-menu a.active,
+.sidebar-menu a:hover{
+    background:var(--secondary);
+}
+
+/* ===== MAIN ===== */
+.main{
+    flex:1;
+    background:var(--primary);
+    padding:25px;
+    overflow-y:auto;
+}
+
+/* ===== TOP BAR ===== */
+.topbar{
+    background:var(--white);
+    border-radius:18px;
+    padding:18px 28px;
+    margin-bottom:25px;
+}
+
+.topbar h2{color:var(--primary);}
+
+/* ===== PROFILE HEADER ===== */
+.profile-header{
+    background:var(--white);
+    border-radius:20px;
+    padding:30px;
+    display:grid;
+    grid-template-columns:120px 1fr 1fr;
+    gap:30px;
+    margin-bottom:25px;
+}
+
+.profile-pic{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:var(--secondary);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    font-weight:700;
+    color:#fff;
+}
+
+.field{
+    margin-bottom:12px;
+}
+
+.field span{
+    display:block;
+    font-size:13px;
+    color:var(--muted);
+}
+
+.field div{
+    border-bottom:1px solid #ccc;
+    padding:4px 0;
+}
+
+/* ===== TABS ===== */
+.tabs{
+    display:flex;
+    gap:18px;
+    margin-bottom:20px;
+}
+
+.tab{
+    padding:12px 20px;
+    border-radius:12px;
+    background:#fff;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.tab.active{
+    background:var(--secondary);
+}
+
+/* ===== TAB CONTENT ===== */
+.tab-content{
+    background:var(--white);
+    border-radius:20px;
+    padding:30px;
+    display:none;
+}
+
+.tab-content.active{
+    display:block;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px 40px;
+}
+
+.info span{
+    font-size:13px;
+    color:var(--muted);
+}
+
+.info div{
+    border-bottom:1px solid #ccc;
+    padding:4px 0;
+}
+
+/* ===== RESUME CARD ===== */
+.resume-card{
+    background:#F5F7FB;
+    padding:20px;
+    border-radius:16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.resume-actions button{
+    padding:8px 14px;
+    border:none;
+    border-radius:10px;
+    background:var(--primary);
+    color:#fff;
+    cursor:pointer;
+    margin-left:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+    <div class="sidebar-panel">
+        <div class="sidebar-header">
+            DayFlow<span>HR</span>
+        </div>
+        <div class="sidebar-menu">
+            <a href="employee-dashboard.html">🏠 Dashboard</a>
+            <a class="active" href="myprofile.html">👤 My Profile</a>
+            <a href="attendance.html">📅 Attendance</a>
+            <a  href="leave.html">📝 Leave Requests</a>
+            <a href="salary.html">💰 Salary</a>
+            <a href="../login.html">🚪 Logout</a>
+
+        </div>
+    </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<div class="topbar">
+    <h2>My Profile</h2>
+</div>
+
+<!-- PROFILE HEADER -->
+<div class="profile-header">
+    <div class="profile-pic">AJ</div>
+
+    <div>
+        <div class="field"><span>Name</span><div>Rutvik Joshi</div></div>
+        <div class="field"><span>Job Position</span><div>Software Engineer</div></div>
+        <div class="field"><span>Email</span><div>rutvik@dayflow.com</div></div>
+        <div class="field"><span>Mobile</span><div>+91 98765 43210</div></div>
+    </div>
+
+    <div>
+        <div class="field"><span>Company</span><div>DayFlow Pvt Ltd</div></div>
+        <div class="field"><span>Department</span><div>IT</div></div>
+        <div class="field"><span>Manager</span><div>Rahul Sharma</div></div>
+        <div class="field"><span>Location</span><div>Pune, India</div></div>
+    </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+    <div class="tab active" onclick="openTab('resume')">Resume</div>
+    <div class="tab" onclick="openTab('private')">Private Info</div>
+    <div class="tab" onclick="openTab('salary')">Salary Info</div>
+    <div class="tab" onclick="openTab('security')">Security</div>
+</div>
+
+<!-- RESUME -->
+<div id="resume" class="tab-content active">
+    <div class="resume-card">
+        <div>
+            <strong>Resume.pdf</strong>
+            <p style="color:var(--muted);font-size:13px;">Last updated: 10 days ago</p>
+        </div>
+        <div class="resume-actions">
+            <button>View</button>
+            <button>Download</button>
+            <button>Upload New</button>
+        </div>
+    </div>
+</div>
+
+<!-- PRIVATE INFO -->
+<div id="private" class="tab-content">
+    <div class="info-grid">
+        <div class="info"><span>Date of Birth</span><div>12 Aug 2002</div></div>
+        <div class="info"><span>Address</span><div>Pune, India</div></div>
+        <div class="info"><span>Nationality</span><div>Indian</div></div>
+        <div class="info"><span>Personal Email</span><div>rahul.personal@gmail.com</div></div>
+        <div class="info"><span>Gender</span><div>Male</div></div>
+        <div class="info"><span>Marital Status</span><div>Single</div></div>
+        <div class="info"><span>Date of Joining</span><div>01 July 2023</div></div>
+    </div>
+</div>
+
+<!-- SALARY INFO -->
+<div id="salary" class="tab-content">
+    <div class="info-grid">
+        <div class="info"><span>Bank Name</span><div>SBI</div></div>
+        <div class="info"><span>Account Number</span><div>XXXX1234</div></div>
+        <div class="info"><span>IFSC Code</span><div>SBIN0001234</div></div>
+        <div class="info"><span>PAN No</span><div>ABCDE1234F</div></div>
+        <div class="info"><span>UAN No</span><div>100200300400</div></div>
+        <div class="info"><span>Employee Code</span><div>DF1023</div></div>
+    </div>
+</div>
+
+<!-- SECURITY -->
+<div id="security" class="tab-content">
+    <p>Password: ********</p>
+    <p style="margin-top:10px;">Last Changed: 20 days ago</p>
+</div>
+
+</main>
+</div>
+
+<script>
+function openTab(tabId){
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+
+    event.target.classList.add('active');
+    document.getElementById(tabId).classList.add('active');
+}
+</script>
+
+</body>
+</html>

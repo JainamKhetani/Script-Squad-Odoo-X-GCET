@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DayFlow HR | Attendance</title>
+
+<style>
+:root{
+    --primary:#4A70A9;
+    --secondary:#8FABD4;
+    --bg:#EFECE3;
+    --white:#FFFFFF;
+    --black:#000000;
+    --muted:#777;
+    --present:#4CAF50;
+    --absent:#E53935;
+    --half:#FF9800;
+    --leave:#9C27B0;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Tahoma,sans-serif;
+}
+
+body{background:var(--bg);}
+.wrapper{display:flex;height:100vh;}
+
+/* ===== SIDEBAR ===== */
+.sidebar{width:320px;padding:25px 22px;}
+.sidebar-panel{
+    background:var(--white);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,0.12);
+}
+.sidebar-header{
+    background:var(--primary);
+    padding:28px;
+    font-size:26px;
+    font-weight:800;
+    color:#fff;
+}
+.sidebar-menu{padding:28px;}
+.sidebar-menu a{
+    display:block;
+    padding:16px 18px;
+    border-radius:14px;
+    text-decoration:none;
+    color:var(--black);
+    margin-bottom:14px;
+}
+.sidebar-menu a.active,
+.sidebar-menu a:hover{background:var(--secondary);}
+
+/* ===== MAIN ===== */
+.main{
+    flex:1;
+    background:var(--primary);
+    padding:25px;
+    overflow-y:auto;
+}
+
+.topbar{
+    background:var(--white);
+    border-radius:18px;
+    padding:18px 28px;
+    margin-bottom:25px;
+}
+.topbar h2{color:var(--primary);}
+
+/* CHECK IN OUT CARD */
+.action-card{
+    background:var(--white);
+    border-radius:20px;
+    padding:25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.action-card button{
+    padding:12px 22px;
+    border:none;
+    border-radius:12px;
+    font-weight:600;
+    cursor:pointer;
+    background:var(--primary);
+    color:#fff;
+}
+
+.action-card button:disabled{
+    background:#aaa;
+    cursor:not-allowed;
+}
+
+/* TABS */
+.tabs{display:flex;gap:18px;margin-bottom:20px;}
+.tab{
+    padding:12px 20px;
+    border-radius:12px;
+    background:#fff;
+    cursor:pointer;
+    font-weight:600;
+}
+.tab.active{background:var(--secondary);}
+
+/* TAB CONTENT */
+.tab-content{
+    background:var(--white);
+    border-radius:20px;
+    padding:30px;
+    display:none;
+}
+.tab-content.active{display:block;}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;}
+th,td{
+    padding:14px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+}
+
+/* STATUS */
+.status{
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+    color:#fff;
+}
+.present{background:var(--present);}
+.absent{background:var(--absent);}
+.half{background:var(--half);}
+.leave{background:var(--leave);}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+    <div class="sidebar-panel">
+        <div class="sidebar-header">DayFlow<span>HR</span></div>
+        <div class="sidebar-menu">
+            <a href="employee-dashboard.html">🏠 Dashboard</a>
+            <a href="myprofile.html">👤 My Profile</a>
+            <a class="active">📅 Attendance</a>
+            <a  href="leave.html">📝 Leave Requests</a>
+            <a  href="salary.html">💰 Salary</a>
+            <a href="../login.html">🚪 Logout</a>
+
+        </div>
+    </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<div class="topbar">
+    <h2>Attendance</h2>
+</div>
+
+<!-- CHECK IN / OUT -->
+<div class="action-card">
+    <div>
+        <strong>Today:</strong> <span id="todayDate"></span><br>
+        Status: <span id="statusBadge" class="status absent">Absent</span>
+    </div>
+    <div>
+        <button id="checkInBtn" onclick="checkIn()">Check In</button>
+        <button id="checkOutBtn" onclick="checkOut()" disabled>Check Out</button>
+    </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs">
+    <div class="tab active" onclick="openTab('daily')">Daily View</div>
+    <div class="tab" onclick="openTab('weekly')">Weekly View</div>
+</div>
+
+<!-- DAILY VIEW (DYNAMIC) -->
+<div id="daily" class="tab-content active">
+<table>
+<tr>
+    <th>Date</th>
+    <th>Check In</th>
+    <th>Check Out</th>
+    <th>Status</th>
+</tr>
+<tr>
+    <td id="todayCell"></td>
+    <td id="inTime">—</td>
+    <td id="outTime">—</td>
+    <td><span id="dailyStatus" class="status absent">Absent</span></td>
+</tr>
+</table>
+</div>
+
+<!-- WEEKLY VIEW (UNCHANGED) -->
+<div id="weekly" class="tab-content">
+<table>
+<tr>
+    <th>Day</th>
+    <th>Status</th>
+    <th>Hours</th>
+</tr>
+<tr><td>Monday</td><td><span class="status present">Present</span></td><td>8.5</td></tr>
+<tr><td>Tuesday</td><td><span class="status present">Present</span></td><td>8.0</td></tr>
+<tr><td>Wednesday</td><td><span class="status half">Half-day</span></td><td>4.0</td></tr>
+<tr><td>Thursday</td><td><span class="status leave">Leave</span></td><td>0</td></tr>
+<tr><td>Friday</td><td><span class="status absent">Absent</span></td><td>0</td></tr>
+</table>
+</div>
+
+</main>
+</div>
+
+<script>
+const today = new Date();
+document.getElementById("todayDate").innerText = today.toDateString();
+document.getElementById("todayCell").innerText = today.toDateString();
+
+let checkInTime = null;
+
+function formatTime(date){
+    return date.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+}
+
+function checkIn(){
+    checkInTime = new Date();
+    document.getElementById("inTime").innerText = formatTime(checkInTime);
+    document.getElementById("checkInBtn").disabled = true;
+    document.getElementById("checkOutBtn").disabled = false;
+
+    updateStatus("present","Present");
+}
+
+function checkOut(){
+    const out = new Date();
+    document.getElementById("outTime").innerText = formatTime(out);
+    document.getElementById("checkOutBtn").disabled = true;
+
+    const hoursWorked = (out - checkInTime) / (1000 * 60 * 60);
+    if(hoursWorked < 5){
+        updateStatus("half","Half-day");
+    }
+}
+
+function updateStatus(cls,text){
+    document.getElementById("statusBadge").className = "status " + cls;
+    document.getElementById("statusBadge").innerText = text;
+    document.getElementById("dailyStatus").className = "status " + cls;
+    document.getElementById("dailyStatus").innerText = text;
+}
+
+function openTab(tabId){
+    document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+    document.querySelectorAll(".tab-content").forEach(c=>c.classList.remove("active"));
+    event.target.classList.add("active");
+    document.getElementById(tabId).classList.add("active");
+}
+</script>
+
+</body>
+</html>

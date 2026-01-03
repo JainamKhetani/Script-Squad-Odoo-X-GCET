@@ -23,7 +23,7 @@ if ($result->num_rows === 1) {
         if ($user['role'] === "ADMIN") {
             header("Location: admin_dashboard.php");
         } else {
-            header("Location: employee_dashboard.php");
+            header("Location: employee_dashboard/employee-dashboard.html");
         }
         exit;
 

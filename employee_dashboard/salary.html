@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DayFlow HR | Salary</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{
+    --primary:#4A70A9;
+    --secondary:#8FABD4;
+    --bg:#EFECE3;
+    --white:#FFFFFF;
+    --black:#000000;
+}
+
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Tahoma,sans-serif;
+}
+
+body{
+    background:var(--bg);
+}
+
+/* ===== LAYOUT ===== */
+.wrapper{
+    display:flex;
+    height:100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+    width:320px;
+    padding:25px 22px;
+}
+
+.sidebar-panel{
+    background:var(--white);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,0.12);
+}
+
+.sidebar-header{
+    background:var(--primary);
+    padding:28px;
+    font-size:26px;
+    font-weight:800;
+    color:#fff;
+}
+
+.sidebar-header span{
+    color:#dbe7ff;
+}
+
+.sidebar-menu{
+    padding:28px;
+}
+
+.sidebar-menu h4{
+    font-size:13px;
+    color:#777;
+    margin-bottom:18px;
+}
+
+.sidebar-menu a{
+    display:flex;
+    gap:14px;
+    padding:16px 18px;
+    margin-bottom:14px;
+    border-radius:14px;
+    text-decoration:none;
+    color:#000;
+    font-weight:500;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.active{
+    background:var(--secondary);
+}
+
+/* ===== MAIN ===== */
+.main{
+    flex:1;
+    background:var(--primary);
+    padding:25px;
+    overflow-y:auto;
+}
+
+/* ===== TOPBAR ===== */
+.topbar{
+    background:var(--white);
+    border-radius:18px;
+    padding:18px 28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.search{
+    width:340px;
+    padding:12px 18px;
+    border-radius:25px;
+    border:1px solid #ccc;
+}
+
+/* PROFILE */
+.profile-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.avatar{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background:var(--primary);
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:700;
+}
+
+/* ===== SALARY SUMMARY ===== */
+.salary-summary{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+    margin-bottom:30px;
+}
+
+.summary-card{
+    background:var(--white);
+    border-radius:20px;
+    padding:26px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.15);
+}
+
+.summary-card h2{
+    font-size:26px;
+    margin-top:8px;
+}
+
+.summary-card p{
+    font-size:14px;
+    color:#555;
+}
+
+/* ===== CARD ===== */
+.card{
+    background:var(--white);
+    border-radius:20px;
+    padding:28px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.15);
+}
+
+.card h3{
+    margin-bottom:20px;
+    color:var(--primary);
+}
+
+/* ===== SALARY TABLE ===== */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:14px;
+    border-bottom:1px solid #ddd;
+    text-align:center;
+    font-size:14px;
+}
+
+.download-btn{
+    padding:8px 16px;
+    background:var(--primary);
+    color:#fff;
+    border-radius:20px;
+    font-size:13px;
+    cursor:pointer;
+}
+
+.download-btn:hover{
+    background:#365a8c;
+}
+.section{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+    <div class="sidebar-panel">
+
+        <div class="sidebar-header">
+            DayFlow<span>HR</span>
+        </div>
+
+        <div class="sidebar-menu">
+            <h4>MAIN MENU</h4>
+            <a href="employee-dashboard.html">🏠 Dashboard</a>
+            <a href="myprofile.html">👤 My Profile</a>
+            <a href="attendance.html">📅 Attendance</a>
+            <a  href="leave.html">📝 Leave Requests</a>
+            <a class="active" href="salary.html">💰 Salary</a>
+            <a href="../login.html">🚪 Logout</a>
+
+        </div>
+
+    </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+<div class="topbar">
+    <input class="search" placeholder="Search salary..." />
+    <div class="profile-box">
+        <div class="avatar">AJ</div>
+        <div>
+            <strong>Employee John</strong><br>
+            <small>Employee</small>
+        </div>
+    </div>
+</div>
+
+<!-- SALARY SUMMARY -->
+<div class="salary-summary">
+    <div class="summary-card">
+        <p>Basic Salary</p>
+        <h2>₹25,000</h2>
+    </div>
+    <div class="summary-card">
+        <p>Allowances</p>
+        <h2>₹5,000</h2>
+    </div>
+    <div class="summary-card">
+        <p>Deductions</p>
+        <h2>₹2,000</h2>
+    </div>
+    <div class="summary-card">
+        <p>Net Pay</p>
+        <h2>₹33,000</h2>
+    </div>
+</div>
+<div class="section">
+<!-- SALARY HISTORY -->
+<div class="card">
+    <h3>Salary History</h3>
+
+    <table>
+        <tr>
+            <th>Month</th>
+            <th>Basic</th>
+            <th>Allowances</th>
+            <th>Deductions</th>
+            <th>Net Pay</th>
+            <th>Payslip</th>
+        </tr>
+        <tr>
+            <td>July 2025</td>
+            <td>₹25,000</td>
+            <td>₹5,000</td>
+            <td>₹2,000</td>
+            <td><strong>₹33,000</strong></td>
+            <td><span class="download-btn">Download</span></td>
+        </tr>
+        <tr>
+            <td>June 2025</td>
+            <td>₹25,000</td>
+            <td>₹5,000</td>
+            <td>₹2,000</td>
+            <td><strong>₹33,000</strong></td>
+            <td><span class="download-btn">Download</span></td>
+        </tr>
+    </table>
+</div>
+
+<!-- SALARY DETAILS CARD -->
+<div class="card" style="margin-bottom:25px;">
+    <h3>Employee Salary Details</h3>
+
+    <table>
+        <tr>
+            <td><strong>Employee Name</strong></td>
+            <td>John Doe</td>
+            <td><strong>Employee ID</strong></td>
+            <td>EMP1023</td>
+        </tr>
+        <tr>
+            <td><strong>Department</strong></td>
+            <td>Engineering</td>
+            <td><strong>Pay Month</strong></td>
+            <td>July 2025</td>
+        </tr>
+        <tr>
+            <td><strong>Payment Status</strong></td>
+            <td colspan="3" style="color:green;font-weight:600;">✔ Paid</td>
+        </tr>
+    </table>
+</div>
+
+<!-- EARNINGS & DEDUCTIONS -->
+<div class="content" style="grid-template-columns:1fr 1fr;margin-bottom:25px;">
+<div class="section">
+    <div class="card">
+        <h3>Earnings</h3>
+        <table>
+            <tr><td>Basic Salary</td><td>₹25,000</td></tr>
+            <tr><td>HRA</td><td>₹3,000</td></tr>
+            <tr><td>Performance Bonus</td><td>₹2,000</td></tr>
+            <tr><th>Total Earnings</th><th>₹30,000</th></tr>
+        </table>
+    </div>
+</div>
+<div class="section">
+    <div class="card">
+        <h3>Deductions</h3>
+        <table>
+            <tr><td>PF</td><td>₹1,200</td></tr>
+            <tr><td>Professional Tax</td><td>₹800</td></tr>
+            <tr><th>Total Deductions</th><th>₹2,000</th></tr>
+        </table>
+    </div>
+</div>
+</div>
+
+<!-- NET PAY -->
+<div class="card" style="text-align:center;margin-bottom:25px;">
+    <h3>Net Pay</h3>
+    <h1 style="color:var(--primary);font-size:42px;">₹28,000</h1>
+    <p style="color:#555;">Credited to your bank account</p>
+</div>
+
+<!-- PAYSLIP DOWNLOAD -->
+<div class="card">
+    <h3>Payslip</h3>
+    <p>You can download your payslip for official use.</p>
+    <br>
+    <button onclick="downloadPayslip()" class="download-btn">📄 Download Payslip (PDF)</button>
+</div>
+</div>
+</main>
+</div>
+
+
+
+</body>
+</html>
+<script>
+function downloadPayslip(){
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    doc.setFontSize(18);
+    doc.text("DayFlow HR - Payslip", 20, 20);
+
+    doc.setFontSize(12);
+    doc.text("Employee Name: John Doe", 20, 40);
+    doc.text("Employee ID: EMP1023", 20, 50);
+    doc.text("Department: Engineering", 20, 60);
+    doc.text("Pay Month: July 2025", 20, 70);
+
+    doc.line(20, 75, 190, 75);
+
+    doc.text("Earnings", 20, 85);
+    doc.text("Basic Salary: ₹25,000", 20, 95);
+    doc.text("HRA: ₹3,000", 20, 105);
+    doc.text("Bonus: ₹2,000", 20, 115);
+
+    doc.text("Deductions", 20, 130);
+    doc.text("PF: ₹1,200", 20, 140);
+    doc.text("Professional Tax: ₹800", 20, 150);
+
+    doc.line(20, 160, 190, 160);
+
+    doc.setFontSize(14);
+    doc.text("Net Pay: ₹28,000", 20, 175);
+
+    doc.setFontSize(10);
+    doc.text("This is a system generated payslip.", 20, 190);
+
+    doc.save("Payslip_July_2025.pdf");
+}
+</script>
