@@ -1,139 +1,132 @@
 <div align="center">
-🧑‍💼 DayFlow
-Human Resource Management System
-Every workday, perfectly aligned.
-<br/> <img src="https://img.shields.io/badge/HRMS-Management-blue?style=for-the-badge"/> <img src="https://img.shields.io/badge/PHP-Backend-777BB4?style=for-the-badge&logo=php"/> <img src="https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql"/> <img src="https://img.shields.io/badge/HTML-CSS-JS-orange?style=for-the-badge"/>
+
+# 🧑‍💼 DayFlow  
+## Human Resource Management System  
+### *Every workday, perfectly aligned.*
+
+<br/>
+
+<img src="https://img.shields.io/badge/HRMS-System-blue?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/PHP-Backend-777BB4?style=for-the-badge&logo=php"/>
+<img src="https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql"/>
+<img src="https://img.shields.io/badge/HTML-CSS-JS-orange?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Hackathon-Ready-success?style=for-the-badge"/>
 
 <br/><br/>
 
-A secure, role-based HR management system for employee data, attendance, leave workflows, and payroll visibility.
+**A secure, role-based Human Resource Management System that digitizes employee data, attendance, leave workflows, and payroll visibility.**
 
 </div>
-📌 Table of Contents
 
-🌟 Overview
+---
 
-🎯 Problem Statement
+## 📋 Table of Contents
+- 🌟 Overview  
+- 🎯 Problem Statement  
+- 💡 Our Solution  
+- ✨ Key Features  
+- 🏗️ System Architecture  
+- 🔧 Tech Stack  
+- 📁 Project Structure  
+- 🚀 Getting Started  
+- 🔐 Authentication & Roles  
+- 📊 Core Modules  
+- 🔮 Future Enhancements  
+- 👨‍💻 Team  
 
-💡 Solution
+---
 
-✨ Key Features
+## 🌟 Overview
 
-🏗️ Architecture
+**DayFlow** is a web-based **Human Resource Management System (HRMS)** designed to streamline daily HR operations for organizations.
 
-🔧 Tech Stack
+It replaces manual registers, spreadsheets, and email-based approvals with a **centralized, real-time, role-driven platform**.
 
-📁 Project Structure
+---
 
-🚀 Getting Started
+## 🎯 Problem Statement
 
-🔐 Authentication & Roles
+Traditional HR processes often involve:
 
-📊 Core Modules
+- ❌ Manual attendance tracking  
+- ❌ Email-based leave approvals  
+- ❌ Scattered employee records  
+- ❌ No real-time visibility for HR  
 
-🔮 Future Enhancements
+These issues lead to inefficiency, data inconsistency, and delayed decision-making.
 
-👨‍💻 Team
+---
 
-🌟 Overview
+## 💡 Our Solution
 
-DayFlow is a web-based Human Resource Management System (HRMS) built to digitize and simplify everyday HR operations.
+**DayFlow HRMS** provides a simple yet powerful solution with:
 
-It replaces spreadsheets, manual registers, and email-based approvals with a centralized, real-time, role-driven system.
+- 🔐 Secure session-based authentication  
+- 🧑‍💼 Clear role separation (Admin / Employee)  
+- 🕒 Attendance and leave management  
+- 💰 Payroll visibility with admin control  
+- 📊 Dashboard-driven HR insights  
 
-🎯 Problem Statement
+Built using **PHP + MySQL**, DayFlow focuses on **clarity, security, and real-world HR workflows**.
 
-Traditional HR processes suffer from:
+---
 
-❌ Manual attendance tracking
-❌ Email-based leave approvals
-❌ Scattered employee records
-❌ No real-time HR visibility
+## ✨ Key Features
 
-These issues lead to inefficiency, errors, and poor decision-making.
+### 👤 User & Role Management
+- Secure login system  
+- Role-based access control  
+- Session-protected routes  
 
-💡 Our Solution
+### 🕒 Attendance Management
+- Daily attendance tracking  
+- Admin-wide attendance view  
+- Status-based records  
 
-DayFlow HRMS provides:
+### 🌴 Leave Management
+- Leave application by employees  
+- Admin approval / rejection  
+- Real-time status updates  
 
-✅ Centralized employee data
-✅ Role-based access (Admin / Employee)
-✅ Attendance & leave workflows
-✅ Payroll visibility
-✅ Clean admin dashboard
+### 💰 Payroll Module
+- Read-only salary view for employees  
+- Admin-controlled payroll management  
 
-Built with PHP + MySQL, DayFlow focuses on simplicity, security, and real-world usability.
+### 📊 Admin Dashboard
+- Total employees  
+- Pending leave requests  
+- Employees on leave  
+- Recent employee activity  
 
-✨ Key Features
-👤 User & Role Management
+---
 
-Secure login system
+Frontend (HTML / CSS / JavaScript)
+↓
+PHP Backend (Authentication & Business Logic)
+↓
+MySQL Database (phpMyAdmin)
 
-Role-based access control
 
-Session-protected routes
+---
 
-🕒 Attendance Management
+## 🔧 Tech Stack
 
-Daily attendance records
+| Layer | Technology |
+|------|-----------|
+| Frontend | HTML5, CSS3, JavaScript |
+| Backend | PHP |
+| Database | MySQL |
+| DB Tool | phpMyAdmin |
+| Authentication | PHP Sessions |
+| Tools | XAMPP / VS Code / GitHub |
 
-Admin-wide attendance view
+---
 
-Status-based tracking
+## 📁 Project Structure
 
-🌴 Leave Management
 
-Employee leave application
+## 🏗️ System Architecture
 
-Admin approval / rejection
-
-Real-time status updates
-
-💰 Payroll Module
-
-Read-only salary view for employees
-
-Admin-controlled payroll management
-
-📊 Admin Dashboard
-
-Total employees
-
-Pending leave requests
-
-Employees on leave
-
-Recent employee activity
-
-🏗️ System Architecture
-┌──────────────┐
-│  Frontend    │
-│ HTML/CSS/JS  │
-└──────┬───────┘
-       │
-       ▼
-┌──────────────┐
-│ PHP Backend  │
-│ Auth & Logic │
-└──────┬───────┘
-       │
-       ▼
-┌──────────────┐
-│   MySQL DB   │
-│ phpMyAdmin  │
-└──────────────┘
-
-🔧 Tech Stack
-<div align="center">
-Layer	Technology
-Frontend	HTML5, CSS3, JavaScript
-Backend	PHP
-Database	MySQL
-DB Tool	phpMyAdmin
-Auth	PHP Sessions
-Tools	XAMPP / VS Code / GitHub
-</div>
-📁 Project Structure
 DayFlow-HRMS/
 │
 ├── db.php
@@ -147,74 +140,94 @@ DayFlow-HRMS/
 ├── logout.php
 │
 ├── assets/
-│   ├── css/
-│   └── images/
+│ ├── css/
+│ └── images/
 │
 └── README.md
 
-🚀 Getting Started
-🔹 Prerequisites
 
-PHP 8+
+---
 
-MySQL
+## 🚀 Getting Started
 
-XAMPP / WAMP
+### 🔹 Prerequisites
+- PHP 8+
+- MySQL
+- XAMPP / WAMP
+- Web Browser
 
-Browser
+---
 
-🔹 Installation
+### 🔹 Installation Steps
+
+#### 1️⃣ Clone the Repository
+```bash
 git clone https://github.com/your-username/dayflow-hrms.git
 cd dayflow-hrms
+```
 
-
-Create database:
-
+####2️⃣ Create Database
+```bash
 CREATE DATABASE dayflow_hrms;
+```
 
-
-Configure db.php:
-
+####3️⃣ Configure Database
+Edit db.php:
+```bash
 $conn = new mysqli("localhost", "root", "", "dayflow_hrms");
+```
 
-
-Run:
-
+####4️⃣ Run the Project
+Start Apache & MySQL from XAMPP
+Open browser:
+```bash
 http://localhost/DayFlow-HRMS/login.html
+```
 
 🔐 Authentication & Roles
 👨‍💼 Admin / HR
 
-✔ Manage employees
-✔ Approve/reject leave
-✔ View attendance & payroll
-✔ Dashboard insights
+Access admin dashboard
+
+Manage employees
+
+Approve / reject leave
+
+View attendance & payroll
 
 👤 Employee
 
-✔ View profile
-✔ Apply for leave
-✔ View attendance
-✔ View salary
+View personal profile
 
-🔒 All admin routes are session-protected.
+Apply for leave
+
+View attendance
+
+View salary
+
+🔒 All protected routes are secured using PHP session validation.
 
 📊 Core Modules
 Module	Description
 Authentication	Secure login & session handling
-Employee Management	Central employee records
+Employee Management	Centralized employee records
 Attendance	Daily attendance tracking
-Leave Management	Approval-based leave system
+Leave Management	Approval-based leave workflow
 Payroll	Salary visibility & admin control
 🔮 Future Enhancements
 
-🚀 Email & notification alerts
-📈 Analytics dashboard
+📧 Email & notification alerts
+
+📈 Analytics & reporting dashboard
+
 📄 Salary slip generation
-📊 Attendance reports
-🔐 Audit logs & security hardening
+
+📊 Monthly / yearly attendance reports
+
+🔐 Audit logs & enhanced security
 
 👨‍💻 Team
+``` bash
 <div align="center">
 
 Built collaboratively by a 4-member development team
@@ -225,6 +238,6 @@ Backend • Database • UI • Integration
 <div align="center">
 ⭐ Why DayFlow?
 
-Simple. Secure. Real-world HR logic. Hackathon-ready.
+Simple • Secure • Real-world HR logic • Hackathon-ready
 
-</div>
+</div> ```
