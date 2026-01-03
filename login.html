@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DayFlow HR | Login</title>
+
+<style>
+:root {
+    --black: #000000;
+    --primary: #4A70A9;
+    --secondary: #8FABD4;
+    --bg: #EFECE3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--bg);
+    overflow: hidden;
+}
+
+/* ===== HEADER ===== */
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 22px 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+header h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--black);
+}
+
+header h2 span {
+    color: var(--primary);
+}
+
+/* NAV BUTTONS */
+nav {
+    display: flex;
+    gap: 14px;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+    background: rgba(255, 255, 255, 0.6);
+    border: 1.5px solid var(--secondary);
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    padding: 0 90px;
+    position: relative;
+}
+
+/* BACKGROUND CURVE */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    top: -45%;
+    left: -25%;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* LEFT CONTENT */
+.hero-content {
+    color: #ffffff;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 52px;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.hero-content span {
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.hero-content p {
+    margin: 20px 0;
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 500px;
+}
+
+.hero-content button {
+    padding: 13px 32px;
+    border-radius: 30px;
+    border: 2px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.hero-content button:hover {
+    background: #ffffff;
+    color: var(--primary);
+}
+
+/* ===== LOGIN CARD ===== */
+.login-box {
+    justify-self: center;
+    width: 370px;
+    background: linear-gradient(
+        160deg,
+        #ffffff,
+        #f3f1ea,
+        #e3e9f4
+    );
+    padding: 38px;
+    border-radius: 18px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+}
+
+.login-box h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--primary);
+    font-size: 22px;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    border: 1.5px solid var(--secondary);
+    font-size: 14px;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.login-box button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--primary), #365c8c);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>DayFlow<span>HR</span></h2>
+
+    <nav>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <div class="hero-content">
+        <h1>Every Workday.<br><span>Perfectly Aligned.</span></h1>
+        <p>
+            DayFlow HR is a modern Human Resource Management System that simplifies
+            attendance, employee management, and approval workflows with clarity
+            and confidence.
+        </p>
+        <button>Learn More</button>
+    </div>
+
+    <div class="login-box">
+        <h3>DayFlow HR</h3>
+
+        <form>
+            <div class="input-group">
+                <input type="email" placeholder="Email Address" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" placeholder="Password" required>
+            </div>
+
+            <div class="input-group">
+                <select required>
+                    <option>Employee</option>
+                    <option>Admin</option>
+                </select>
+            </div>
+
+            <button type="submit">LOGIN</button>
+        </form>
+    </div>
+
+</section>
+
+</body>
+</html>
