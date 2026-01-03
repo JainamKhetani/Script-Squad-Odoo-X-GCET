@@ -1,0 +1,280 @@
+:root {
+    --primary: #4A70A9;
+    --secondary: #8FABD4;
+    --bg: #EFECE3;
+    --dark: #1f2d3d;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    background: var(--bg);
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width: 250px;
+    background: linear-gradient(180deg, var(--primary), #365c8c);
+    color: white;
+    padding: 30px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.sidebar h2 span {
+    color: #dbe5ff;
+}
+
+.sidebar nav {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.sidebar nav a {
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: rgba(255,255,255,0.25);
+}
+
+.logout {
+    background: rgba(255,255,255,0.25);
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ===== MAIN ===== */
+.main {
+    flex: 1;
+    padding: 40px 60px;
+}
+
+/* TOP BAR */
+.topbar h3 {
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.topbar p {
+    color: #444;
+    margin-top: 4px;
+}
+
+/* ===== CARDS ===== */
+.cards {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.card {
+    padding: 26px;
+    border-radius: 18px;
+    color: white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card h4 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 14px;
+    opacity: 0.95;
+}
+
+/* CARD GRADIENTS */
+.gradient-1 {
+    background: linear-gradient(135deg, #5f8dd3, #4A70A9);
+}
+
+.gradient-2 {
+    background: linear-gradient(135deg, #6fb1d6, #4A90A9);
+}
+
+.gradient-3 {
+    background: linear-gradient(135deg, #7b8fe0, #5b6fd6);
+}
+
+.gradient-4 {
+    background: linear-gradient(135deg, #8da3e6, #6b7fe0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar {
+        display: none;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+:root {
+    --primary: #3f6ba4;
+    --bg: #f4f6fa;
+    --white: #ffffff;
+    --text: #222;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background: var(--bg);
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 240px;
+    background: var(--primary);
+    color: white;
+    padding: 25px;
+}
+
+.sidebar h2 span {
+    color: #dce6f7;
+}
+
+.sidebar nav {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.sidebar nav a {
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.sidebar nav a.active,
+.sidebar nav a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* MAIN */
+.main {
+    flex: 1;
+    padding: 20px 30px;
+}
+
+/* TOPBAR */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.topbar input {
+    width: 300px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.profile {
+    background: white;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+/* KPI */
+.kpi {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.kpi-card {
+    padding: 20px;
+    border-radius: 14px;
+    color: white;
+}
+
+.blue { background: #4f7dd1; }
+.green { background: #4bb884; }
+.orange { background: #f3a333; }
+.red { background: #e65c5c; }
+
+/* CONTENT */
+.content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.panel {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.placeholder {
+    height: 200px;
+    background: #eef2f8;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+/* BUTTONS */
+.panel button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
